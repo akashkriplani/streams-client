@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 
-const GoogleAuth = () => {
-  const [isSignedIn, setIsSignedIn] = useState(null);
+class GoogleAuth extends React.Component {
+  state = { isSignedIn: null };
 
-  useEffect(() => {
+  componentDidMount() {
     window.gapi.load('client:auth2', () => {
       window.gapi.client
         .init({
@@ -12,26 +12,40 @@ const GoogleAuth = () => {
           plugin_name: 'Stream Client'
         })
         .then(() => {
-          const auth = window.gapi.auth2.getAuthInstance();
-          setIsSignedIn(auth.isSignedIn.get());
-          auth.isSignedIn.listen(() => setIsSignedIn(auth.isSignedIn.get()));
+          this.auth = window.gapi.auth2.getAuthInstance();
+          this.setState({
+            isSignedIn: this.auth.isSignedIn.get()
+          });
+          this.auth.isSignedIn.listen(this.onAuthChange);
         });
     });
-  }, []);
+  }
 
-  const renderAuthButton = () => {
-    if (isSignedIn === null) {
+  onAuthChange = () => {
+    this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+  };
+
+  onSignInClick = () => {
+    this.auth.signIn();
+  };
+
+  onSignOutClick = () => {
+    this.auth.signOut();
+  };
+
+  renderAuthButton = () => {
+    if (this.state.isSignedIn === null) {
       return null;
-    } else if (isSignedIn) {
+    } else if (this.state.isSignedIn) {
       return (
-        <button className="ui red google button">
+        <button className="ui red google button" onClick={this.onSignOutClick}>
           <i className="google icon" />
           Sign Out
         </button>
       );
     } else {
       return (
-        <button className="ui red google button">
+        <button className="ui red google button" onClick={this.onSignInClick}>
           <i className="google icon" />
           Sign In with Google
         </button>
@@ -39,7 +53,9 @@ const GoogleAuth = () => {
     }
   };
 
-  return <div>{renderAuthButton()}</div>;
-};
+  render() {
+    return <div>{this.renderAuthButton()}</div>;
+  }
+}
 
 export default GoogleAuth;
