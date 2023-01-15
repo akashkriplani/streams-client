@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 // import { createStore } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import App from './components/App';
-import { authReducer } from './reducers/authReducer';
+import combineReducers from './reducers';
 
 const el = document.getElementById('root');
 const root = createRoot(el);
@@ -32,9 +32,7 @@ const composeEnhancers = {
 //const store = createStore(reducers, composeEnhancers(applyMiddleware));
 
 const store = configureStore({
-  reducer: {
-    auth: authReducer
-  },
+  reducer: combineReducers,
   composeEnhancers: composeEnhancers
 });
 
