@@ -5,14 +5,25 @@ class StreamCreate extends React.Component {
   // The parameter to the rednderInput method is formProps and we extract the input from it.
   // As an alternative, we can use formProps.input instead of just extracting the input field.
   // Console the parameter formProps to know more if you ever visit this page again
-  renderInput({ input, label, meta }) {
+  renderInput = ({ input, label, meta }) => {
+    console.log(meta);
     return (
       <div className="field">
         <label>{label}</label>
-        <input {...input} />
-        <div>{meta.error}</div>
+        <input {...input} autoComplete="off" />
+        {this.renderError(meta)}
       </div>
     );
+  };
+
+  renderError({ error, touched }) {
+    if (touched && error) {
+      return (
+        <div className="ui error message">
+          <div className="header">{error}</div>
+        </div>
+      );
+    }
   }
 
   onSubmit(formValues) {
