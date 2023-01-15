@@ -6,9 +6,9 @@ class StreamCreate extends React.Component {
   // As an alternative, we can use formProps.input instead of just extracting the input field.
   // Console the parameter formProps to know more if you ever visit this page again
   renderInput = ({ input, label, meta }) => {
-    console.log(meta);
+    const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
     return (
-      <div className="field">
+      <div className={className}>
         <label>{label}</label>
         <input {...input} autoComplete="off" />
         {this.renderError(meta)}
@@ -35,7 +35,7 @@ class StreamCreate extends React.Component {
     // It does not know how to make use of it, so it passes that prop (in this case, label)
     // as a parameter to the renderInput method.
     return (
-      <form className="ui form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
+      <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)}>
         <Field name="title" component={this.renderInput} label="Enter title" />
         <Field name="description" component={this.renderInput} label="Enter description" />
         <button className="ui button primary">Submit</button>
