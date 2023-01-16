@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import App from './components/App';
 import combineReducers from './reducers';
+import reduxThunk from 'redux-thunk';
 
 const el = document.getElementById('root');
 const root = createRoot(el);
@@ -33,7 +34,10 @@ const composeEnhancers = {
 
 const store = configureStore({
   reducer: combineReducers,
-  composeEnhancers: composeEnhancers
+  composeEnhancers: composeEnhancers,
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware(reduxThunk);
+  }
 });
 
 root.render(
