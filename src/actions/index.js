@@ -1,4 +1,5 @@
 import streams from '../apis/streams';
+import history from '../history';
 import { CREATE_STREAM, DELETE_STREAM, EDIT_STREAM, FETCH_STREAM, FETCH_STREAMS, SIGN_IN, SIGN_OUT } from './types';
 
 export const signIn = (userId) => {
@@ -19,6 +20,10 @@ export const createStream = (formValues) => async (dispatch, getState) => {
   const response = await streams.post('/streams', { ...formValues, userId });
 
   dispatch({ type: CREATE_STREAM, payload: response.data });
+  // Navigate the user back to the root route once the new stream is created.
+  // For this programmatic navigation, we created history.js file and used Router in the App.js instead of BrowserRouter which uses history object internally to allow us to navigate.
+  // By creating a custom history.js file, we have allowed ourselves to allow programmatic navigation which would not have been possible had we used BrowserRouter from the react-router-dom package.
+  history.push('/');
 };
 
 export const fetchStreams = () => async (dispatch) => {
