@@ -13,6 +13,10 @@ Download the software from [https://obsproject.com/] (OBS Website).
 
 In the project directory, you can run:
 
+### `npm install`
+
+If the normal npm install does not work, try using the --legacy-peer-deps flag instead.\
+
 ### `npm start`
 
 Runs the app in the development mode.\
