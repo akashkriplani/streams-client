@@ -33,7 +33,7 @@ Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
 ### `npm start:rtmp-server`
 
 Runs the node media server and listens to the streaming coming in from the rtmp server.\
-Open [Node Media Server](https://github.com/illuspas/Node-Media-Server) guidelines to set it up.\
+Open [Node Media Server](https://github.com/illuspas/Node-Media-Server) guidelines to set it up.
 
 ### `npm test`
 
