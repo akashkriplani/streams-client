@@ -7,7 +7,7 @@ This project aims to mimick (somewhat) what happens in Twitch TV application.
 
 You would need to setup an Open Broadcaster Software (OBS) application on your system to make the application work locally.\
 This is just the very basic setup and does not deal with the complexity of the OBS set up.\
-Download the software from [https://obsproject.com/](OBS Website).
+Download the software from [OBS Website](https://obsproject.com/).
 
 ## Available Scripts
 
