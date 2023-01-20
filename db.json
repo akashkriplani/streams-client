@@ -1,0 +1,26 @@
+{
+  "streams": [
+    {
+      "title": "My Stream",
+      "description": "This is a great stream!",
+      "id": 1
+    },
+    {
+      "title": "Other Stream",
+      "description": "Here's some stream",
+      "id": 2
+    },
+    {
+      "title": "Programmatic Navigation",
+      "description": "This would happen instantly!",
+      "userId": "112839404949752118097",
+      "id": 4
+    },
+    {
+      "description": "This stream is created using react-final-form package",
+      "title": "React final form stream",
+      "userId": "112839404949752118097",
+      "id": 5
+    }
+  ]
+}
