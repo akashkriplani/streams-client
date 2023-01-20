@@ -15,7 +15,7 @@ In the project directory, you can run:
 
 ### `npm install`
 
-If the normal npm install does not work, try using the --legacy-peer-deps flag instead.\
+If the normal npm install does not work, try using the --legacy-peer-deps flag instead.
 
 ### `npm start`
 
@@ -33,7 +33,7 @@ Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
 ### `npm start:rtmp-server`
 
 Runs the node media server and listens to the streaming coming in from the rtmp server.\
-Open [https://github.com/illuspas/Node-Media-Server](Node Media Server) guidelines to set it up.\
+Open [Node Media Server](https://github.com/illuspas/Node-Media-Server) guidelines to set it up.\
 
 ### `npm test`
 
