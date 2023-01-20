@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Streamer Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+This project aims to mimick (somewhat) what happens in Twitch TV application.
+
+## Requirements
+
+You would need to setup an Open Broadcaster Software (OBS) application on your system to make the application work locally.\
+This is just the very basic setup and does not deal with the complexity of the OBS set up.\
+Download the software from [https://obsproject.com/] (OBS Website).
 
 ## Available Scripts
 
@@ -13,6 +20,16 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+### `npm start:server`
+
+Runs the json-server to fetch the mock data from db.json file in the application.\
+Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
+
+### `npm start:rtmp-server`
+
+Runs the node media server and listens to the streaming coming in from the rtmp server.\
+Open [https://github.com/illuspas/Node-Media-Server](Node Media Server) guidelines to set it up.\
 
 ### `npm test`
 
